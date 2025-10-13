@@ -1,4 +1,3 @@
-
 # app.py
 import streamlit as st
 from logic import transcribe_audio, generate_summary, generate_quiz
@@ -15,7 +14,7 @@ st.markdown(
     """
     <div style="text-align:center;">
         <h1 style="color:#4B8BBE;">🎤 Voice Lecture Notes & Quiz Generator</h1>
-        <p style="font-size:16px;color:#555;">Upload a lecture audio file (.wav or .mp3) to generate transcript, summary, and quiz interactively.</p>
+        <p style="font-size:16px;color:#AAAAAA;">Upload a lecture audio file (.wav or .mp3) to generate transcript, summary, and quiz interactively.</p>
     </div>
     """, unsafe_allow_html=True
 )
@@ -28,27 +27,33 @@ uploaded_file = st.file_uploader(
     help="Choose a lecture audio file to transcribe."
 )
 
-# Only show rest if file is uploaded
 if uploaded_file:
     st.info("🎬 Transcribing audio, please wait...")
-
     transcript = transcribe_audio(uploaded_file)
 
-    # Using expander for transcript
+    # Transcript in expander
     with st.expander("📝 Transcript", expanded=True):
         st.write(transcript)
 
-    # Buttons in columns for better layout
+    # Buttons in columns
     col1, col2 = st.columns(2)
 
     with col1:
         if st.button("🧠 Generate Summary"):
             with st.spinner("Generating summary..."):
                 summary = generate_summary(transcript)
-            # Display summary in a card-style box
             st.success("✅ Summary Generated!")
             st.markdown(
-                f'<div style="padding:10px; border-radius:10px; background-color:#f0f4f8;">{summary}</div>',
+                f"""
+                <div style="
+                    padding:15px; 
+                    border-radius:10px; 
+                    background-color:#1E1E2F; 
+                    color:#E0E0E0; 
+                    font-size:16px;">
+                    {summary}
+                </div>
+                """,
                 unsafe_allow_html=True
             )
 
@@ -58,7 +63,16 @@ if uploaded_file:
                 quiz = generate_quiz(transcript)
             st.success("✅ Quiz Generated!")
             st.markdown(
-                f'<div style="padding:10px; border-radius:10px; background-color:#fff4e6;">{quiz}</div>',
+                f"""
+                <div style="
+                    padding:15px; 
+                    border-radius:10px; 
+                    background-color:#2E2E3F; 
+                    color:#FFFFFF; 
+                    font-size:16px;">
+                    {quiz}
+                </div>
+                """,
                 unsafe_allow_html=True
             )
 
