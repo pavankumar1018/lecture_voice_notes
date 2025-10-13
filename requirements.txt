@@ -1,5 +1,6 @@
 streamlit
-transformers
-torch
-soundfile
-speech_recognition
+SpeechRecognition
+google-generativeai
+ffmpeg-python
+pydub
+
