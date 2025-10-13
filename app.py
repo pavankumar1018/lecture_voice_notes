@@ -14,7 +14,7 @@ st.markdown(
     """
     <div style="text-align:center;">
         <h1 style="color:#4B8BBE;">🎤 Voice Lecture Notes & Quiz Generator</h1>
-        <p style="font-size:16px;color:#AAAAAA;">Upload a lecture audio file (.wav or .mp3) to generate transcript, summary, and quiz interactively.</p>
+        <p style="font-size:16px;color:#AAAAAA;">Upload a lecture audio file (.wav)   to generate transcript, summary, and quiz interactively.</p>
     </div>
     """, unsafe_allow_html=True
 )
