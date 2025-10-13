@@ -23,7 +23,7 @@ st.markdown("---")
 
 # File upload
 uploaded_file = st.file_uploader(
-    "📂 Upload Audio File", type=["wav", "mp3"], 
+    "📂 Upload Audio File", type=["wav"], 
     help="Choose a lecture audio file to transcribe."
 )
 
