@@ -1,15 +1,13 @@
-# app.py
+
 import streamlit as st
 from logic import transcribe_audio, generate_summary, generate_quiz
 
-# Page config
 st.set_page_config(
     page_title="Voice Notes & Quiz",
     layout="wide",
     page_icon="🎤"
 )
 
-# Header Section
 st.markdown(
     """
     <div style="text-align:center;">
@@ -21,7 +19,6 @@ st.markdown(
 
 st.markdown("---")
 
-# File upload
 uploaded_file = st.file_uploader(
     "📂 Upload Audio File", type="wav", 
     help="Choose a lecture audio file to transcribe."
@@ -31,11 +28,11 @@ if uploaded_file:
     st.info("🎬 Transcribing audio, please wait...")
     transcript = transcribe_audio(uploaded_file)
 
-    # Transcript in expander
+  
     with st.expander("📝 Transcript", expanded=True):
         st.write(transcript)
 
-    # Buttons in columns
+
     col1, col2 = st.columns(2)
 
     with col1:
@@ -76,7 +73,6 @@ if uploaded_file:
                 unsafe_allow_html=True
             )
 
-# Footer
 st.markdown("---")
 st.markdown(
     '<p style="text-align:center; color:#888;">Made with ❤️ using Streamlit & Gemini AI</p>',
